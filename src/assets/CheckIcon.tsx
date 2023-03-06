@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
-import { cx } from "@emotion/css";
+import { css } from "@emotion/react";
 import React from "react";
 import { ReactSVG } from "react-svg";
 import svg from "../assets/svgs/icon-check.svg";
@@ -16,6 +15,7 @@ const CheckIcon = (props: any) => {
         & > div > svg {
           width: calc(${width}px);
           height: calc(${height}px);
+
           > path {
             fill: ${fill};
           }

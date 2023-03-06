@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
+import { css } from "@emotion/react";
 import svg from "../assets/svgs/icon-back.svg";
 import { ReactSVG } from "react-svg";
 
@@ -15,6 +15,7 @@ function BackIcon(props: any) {
         & > div > svg {
           width: calc(${width}px);
           height: calc(${height}px);
+
           > path {
             stroke: ${fill};
           }

@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
+import { css } from "@emotion/react";
 import svg from "../assets/svgs/icon-expand.svg";
 import { ReactSVG } from "react-svg";
-import { cx } from "@emotion/css";
 
 function ExpandIcon(props: any) {
   const {
@@ -23,6 +22,7 @@ function ExpandIcon(props: any) {
         & > div > svg {
           width: calc(${width}px);
           height: calc(${height}px);
+
           > path {
             stroke: ${fill};
           }

@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
+import { css } from "@emotion/react";
 import svg from "../assets/svgs/icon-mail.svg";
 import { ReactSVG } from "react-svg";
 
@@ -15,6 +15,7 @@ function MailIcon(props: any) {
         & > div > svg {
           width: calc(${width}px);
           height: calc(${height}px);
+
           > path {
             fill: ${fill};
           }
