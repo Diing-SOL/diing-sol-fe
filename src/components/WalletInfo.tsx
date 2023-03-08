@@ -5,7 +5,8 @@ import CardBackground from "../assets/pngs/img-background-sm.png";
 import WalletIcon from "../assets/WalletIcon";
 import CopyIcon from "../assets/CopyIcon";
 import CheckIcon from "../assets/CheckIcon";
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import Clipboard from "../utils/Clipboard";
+import { useWallet } from "@solana/wallet-adapter-react";
 
 enum connectionState {
   Connected = "connected",
@@ -14,11 +15,21 @@ enum connectionState {
 
 const WalletInfo = () => {
   const [address, setAddress] = useState("");
-  const { publicKey } = useWallet();
+  const [isCopied, setIsCopied] = useState(false);
+  const { connected, publicKey } = useWallet();
+
   useMemo(() => {
     const addr = publicKey?.toString();
     setAddress(addr!);
   }, [publicKey]);
+
+  const handleCopy = async (link: string) => {
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+    await Clipboard.writeText(link);
+  };
   return (
     <>
       <div
@@ -32,15 +43,24 @@ const WalletInfo = () => {
         <div className="flex flex-row items-center gap-4">
           <WalletIcon />
           <div className="text-white text-sm font-medium">
-            {connectionState.Connected}
+            {connected
+              ? connectionState.Connected
+              : connectionState.Disconnected}
           </div>
         </div>
         {true && (
-          <div className="h-5 flex flex-row items-center gap-2 cursor-pointer">
+          <div
+            className="h-5 flex flex-row items-center gap-2 cursor-pointer"
+            onClick={() => handleCopy(address!)}
+          >
             <div className="w-full pr-4 truncate text-white text-sm font-semibold">
               {address}
             </div>
-            {true ? <CheckIcon fill={"white"} /> : <CopyIcon fill={"white"} />}
+            {isCopied ? (
+              <CheckIcon fill={"white"} />
+            ) : (
+              <CopyIcon fill={"white"} />
+            )}
           </div>
         )}
       </div>
