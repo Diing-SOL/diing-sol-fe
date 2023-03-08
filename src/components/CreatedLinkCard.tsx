@@ -5,7 +5,6 @@ import CheckIcon from "../assets/CheckIcon";
 import CopyIcon from "../assets/CopyIcon";
 import CardBackground from "../assets/pngs/img-background-lg.png";
 import Clipboard from "../utils/Clipboard";
-import ShareOptions from "./ShareOptions";
 
 const CreatedLinkCard = () => {
   const [isCopied, setIsCopied] = useState(false);
@@ -42,7 +41,6 @@ const CreatedLinkCard = () => {
           </div>
           {isCopied ? <CheckIcon /> : <CopyIcon fill={"black"} />}
         </div>
-        <ShareOptions link={formattedLink} />
       </div>
     </>
   );
