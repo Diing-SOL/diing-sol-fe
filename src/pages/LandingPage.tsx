@@ -1,9 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import React, { useEffect } from "react";
 import Logo from "../assets/Logo";
+import {
+  WalletDisconnectButton,
+  WalletModalButton,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
 
 const LandingPage = () => {
-
   return (
     <>
       <div className="w-full h-full flex flex-col items-center justify-center pb-24 px-4 bg-tertiary">
@@ -13,6 +17,7 @@ const LandingPage = () => {
             Diing provides three “Ding” services, <br />
             Wallet onboarding, credit building, and lending.
           </div>
+          <WalletMultiButton />
         </div>
         <div className="mt-8">Please reload after connect wallet</div>
       </div>

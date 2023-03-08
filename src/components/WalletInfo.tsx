@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import CardBackground from "../assets/pngs/img-background-sm.png";
 import WalletIcon from "../assets/WalletIcon";
 import CopyIcon from "../assets/CopyIcon";
 import CheckIcon from "../assets/CheckIcon";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 
 enum connectionState {
   Connected = "connected",
@@ -12,6 +13,12 @@ enum connectionState {
 }
 
 const WalletInfo = () => {
+  const [address, setAddress] = useState("");
+  const { publicKey } = useWallet();
+  useMemo(() => {
+    const addr = publicKey?.toString();
+    setAddress(addr!);
+  }, [publicKey]);
   return (
     <>
       <div
@@ -31,7 +38,7 @@ const WalletInfo = () => {
         {true && (
           <div className="h-5 flex flex-row items-center gap-2 cursor-pointer">
             <div className="w-full pr-4 truncate text-white text-sm font-semibold">
-              6ARSYR2B1aPWSjK11ZXDPmApgLgar3bCrm2BTYGS2jBK
+              {address}
             </div>
             {true ? <CheckIcon fill={"white"} /> : <CopyIcon fill={"white"} />}
           </div>
