@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BalanceList from "../components/BalanceList";
 import WalletInfo from "../components/WalletInfo";
 import TemplatePage from "./TemplatePage";

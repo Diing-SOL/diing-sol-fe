@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import TemplatePage from "./TemplatePage";
 import ReceivedCard from "../components/ReceivedCard";
 import Logo from "../assets/Logo";

@@ -1,15 +1,9 @@
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 import {
   ConnectionProvider,
-  useConnection,
-  useWallet,
   WalletProvider,
 } from "@solana/wallet-adapter-react";
-import {
-  WalletModalProvider,
-  WalletDisconnectButton,
-  WalletMultiButton,
-} from "@solana/wallet-adapter-react-ui";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { useRpcEndpoint } from "../hooks/useRpcEndpoint";
 import { useWallets } from "../hooks/useWallets";
 import App from "../App";
